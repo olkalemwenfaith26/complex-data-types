@@ -11,8 +11,9 @@
 //
 ////////////////////// YOUR CODE BELOW THIS LINE ///////////////////////
 
-let newObject
-
+let newObject = {
+	key: "value"
+	}
 ////////////////////////////////////////////////////////////////////////
 
 
@@ -28,7 +29,7 @@ let addNewKVPair = {
 }
 //
 ////////////////////// YOUR CODE BELOW THIS LINE ///////////////////////
-
+addNewKVPair.two = 2
 
 
 ////////////////////////////////////////////////////////////////////////
@@ -48,7 +49,7 @@ let getPatientAge = {
 //
 ////////////////////// YOUR CODE BELOW THIS LINE ///////////////////////
 
-let patientAge
+let patientAge = getPatientAge.age
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -76,8 +77,9 @@ let patient = {
 let patientCopy = JSON.parse(JSON.stringify(patient))
 //
 ////////////////////// YOUR CODE BELOW THIS LINE ///////////////////////
-
-
+patient.age = patient.age + 1
+patient.pastConditions.push("vomiting")
+patient.hobbies.shift("TV")
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -93,7 +95,7 @@ let checkContains = generateRandomObject()
 //
 ////////////////////// YOUR CODE BELOW THIS LINE ///////////////////////
 
-let containsHobbies
+let containsHobbies = "hobbies" in checkContains
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -119,7 +121,7 @@ let sortMyKeys = {
 //
 ////////////////////// YOUR CODE BELOW THIS LINE ///////////////////////
 
-let sortedKeys
+let sortedKeys = Object.keys(sortMyKeys).sort()
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -148,7 +150,15 @@ let clearMe = {
 let clearMeCopy = clearMe
 //
 ////////////////////// YOUR CODE BELOW THIS LINE ///////////////////////
-
+delete clearMe.name
+delete clearMe.age
+delete clearMe.pastConditions
+delete clearMe.hobbies
+delete clearMe.born
+delete clearMe.isNewPatient
+delete clearMe.height
+delete clearMe.weight
+delete clearMe.remarks
 
 
 ////////////////////////////////////////////////////////////////////////
@@ -165,7 +175,7 @@ let emptyObject = generateRandomEmptyObject()
 //
 ////////////////////// YOUR CODE BELOW THIS LINE ///////////////////////
 
-let isEmpty
+let isEmpty = Object.keys(emptyObject).length ===0
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -212,8 +222,8 @@ let ICUWard = {
 //
 ////////////////////// YOUR CODE BELOW THIS LINE ///////////////////////
 
-let spotsLeft
-let atFullCapacity
+let spotsLeft = (ICUWard.room1.capacity - ICUWard.room1.patients.length) + (ICUWard.room2.capacity - ICUWard.room2.patients.length)
+let atFullCapacity = spotsLeft ==0
 
 ////////////////////////////////////////////////////////////////////////
 
@@ -290,11 +300,16 @@ let jupiter = {
 }
 //
 ////////////////////// YOUR CODE BELOW THIS LINE ///////////////////////
-
-let distanceFromOrigin
-let sizeInAUs
-let argonOnEarthLikeMars
-
+let coordsX = Math.pow(solarSystem.properties.location.x, 2)
+let coordsY = Math.pow(solarSystem.properties.location.y, 2)
+let coordsZ = Math.pow(solarSystem.properties.location.z, 2)
+let sumCoords = coordsX + coordsY + coordsZ
+let squareSumCoord = Math.sqrt(sumCoords)
+let distanceFromOrigin = Math.round(squareSumCoord)
+let astroUnit = solarSystem.properties.size / solarSystem.properties.planets[2].distance
+let sizeInAUs = astroUnit.toFixed(2);
+let argonOnEarthLikeMars = solarSystem.properties.planets[2].atmosphere.argon ===  solarSystem.properties.planets[3].atmosphere.argon
+solarSystem.properties.planets.push(jupiter)
 ////////////////////////////////////////////////////////////////////////
 
 
